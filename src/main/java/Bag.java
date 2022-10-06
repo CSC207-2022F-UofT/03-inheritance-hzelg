@@ -80,14 +80,12 @@ public abstract class Bag {
      */
 
     public void addItem(String item){
-        if(this.getNumberOfContents() < this.getCapacity()){
+        if(this.getNumberOfContents() < this.getCapacity() && this.getNumberOfContents() >= 0 ){
             this.contents =  Arrays.copyOf(this.contents, this.contents.length + 1); // copyOf returns a deep copy
             this.contents[this.contents.length-1] = new String(item);
             this.numberOfContents += 1;
         }
     }
-
-
 
     /**
      * TODO: Create a method called popItem that returns a String.
@@ -103,6 +101,7 @@ public abstract class Bag {
         if(this.getNumberOfContents() > 0){
             String tmp = new String(this.contents[this.contents.length-1]);
             this.contents = Arrays.copyOf(this.contents, this.contents.length - 1);
+            this.numberOfContents -= 1;
             return tmp;
         }else{
             return null;
@@ -116,10 +115,10 @@ public abstract class Bag {
      */
     public void increaseCapacity(int n) {
         // TODO: Implement this method.
-        this.capacity += n;
-
+        if(n>=0){
+            this.capacity += n;
+        }
     }
-
     /**
      * Return the details of this Bag.
      * This method requires you to have created the private
