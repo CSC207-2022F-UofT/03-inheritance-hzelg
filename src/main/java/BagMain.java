@@ -18,10 +18,9 @@ class BagMain {
         // TODO: Implement this.
         for(var bag: bags){
             if(double_enhance_handbags){
-                ((Bag)bag).enhance();
-                ((Bag)bag).enhance();
+                ((Bag)bag).increaseCapacity(2);
             }else{
-                ((Bag)bag).enhance();
+                ((Bag)bag).increaseCapacity(1);
             }
         }
     }
