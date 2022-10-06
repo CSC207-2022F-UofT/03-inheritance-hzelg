@@ -82,7 +82,7 @@ public abstract class Bag {
     public void addItem(String item){
         if(this.getNumberOfContents() < this.getCapacity()){
             this.contents =  Arrays.copyOf(this.contents, this.contents.length + 1); // copyOf returns a deep copy
-            this.contents[this.contents.length-1] = item;
+            this.contents[this.contents.length-1] = new String(item);
             this.numberOfContents += 1;
         }
     }
@@ -104,8 +104,9 @@ public abstract class Bag {
             String tmp = new String(this.contents[this.contents.length-1]);
             this.contents = Arrays.copyOf(this.contents, this.contents.length - 1);
             return tmp;
+        }else{
+            return null;
         }
-        return null;
     }
 
     /**
