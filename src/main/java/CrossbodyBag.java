@@ -30,3 +30,36 @@
  *
  *       See the tests in test/CrossBodyBagTest.java for examples.
  */
+
+public class CrossbodyBag extends Bag{
+
+    private int numberOfStraps;
+
+    // constructor
+    // getter numofstraps method
+    // enhance
+    // toString: return a string in the same form as Bag's toString but with the original "Bag" part of the string replaced by: Crossbody Bag with {numberOfStraps} straps
+
+    public CrossbodyBag(String color, int capacity, int numberOfStraps) {
+        /**
+         * This is how we call the parent's constructor
+         * The Python equivalent is super().__init__(...)
+         */
+        super(color, capacity);
+        this.numberOfStraps = numberOfStraps;
+    }
+
+    public int getNumberOfStraps(){
+        return this.numberOfStraps;
+    }
+
+    @Override
+    public String toString(){
+        return this.getColor() + " Crossbody Bag with " + this.numberOfStraps + " straps (" + this.getNumberOfContents() + " / " +
+                this.getCapacity() + ")";
+    }
+    public void enhance(){
+        this.enhance();
+        this.enhance();
+    };
+}

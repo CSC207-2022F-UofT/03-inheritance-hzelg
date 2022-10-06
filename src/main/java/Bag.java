@@ -5,6 +5,8 @@
  * 1. Introduction to Java helpful.
  */
 
+import java.util.Arrays;
+
 public abstract class Bag {
     /*
      * TODO: Create the following private instance variables
@@ -13,8 +15,10 @@ public abstract class Bag {
      *       - an int named capacity
      *       - an array of Strings named contents
      */
-
-
+    private String color;
+    private int numberOfContents;
+    private int capacity;
+    private String[] contents;
 
 
     /*
@@ -26,8 +30,12 @@ public abstract class Bag {
      * be empty (e.g. numberOfContents is 0 and an empty String array for
      * its contents.)
      */
-
-
+    public Bag(String bagColor, int bagCapacity){
+        this.color = bagColor;
+        this.capacity = bagCapacity;
+        this.numberOfContents = 0;
+        this.contents = new String[]{};
+    }
 
 
     /*
@@ -37,8 +45,17 @@ public abstract class Bag {
      *           - getNumberOfContents
      *           - getCapacity
      */
+    public String getColor(){
+        return this.color;
+    }
 
+    public int getNumberOfContents(){
+        return this.numberOfContents;
+    }
 
+    public int getCapacity(){
+        return this.capacity;
+    }
 
 
     /*
@@ -46,8 +63,9 @@ public abstract class Bag {
      *       color of this bag to the given color.
      */
 
-
-
+    public void setColor(String color){
+        this.color = color;
+    }
 
 
     /*
@@ -61,7 +79,13 @@ public abstract class Bag {
      *       and false otherwise.
      */
 
-
+    public void addItem(String item){
+        if(this.getNumberOfContents() < this.getCapacity()){
+            this.contents =  Arrays.copyOf(this.contents, this.contents.length + 1); // copyOf returns a deep copy
+            this.contents[-1] = item;
+            this.numberOfContents += 1;
+        }
+    }
 
 
 
@@ -75,8 +99,14 @@ public abstract class Bag {
      *
      * @return
      */
-
-
+    public String popItem(){
+        if(this.getNumberOfContents() > 0){
+            String tmp = new String(this.contents[-1]);
+            this.contents = Arrays.copyOf(this.contents, this.contents.length - 1);
+            return tmp;
+        }
+        return null;
+    }
 
 
 
@@ -87,6 +117,7 @@ public abstract class Bag {
      */
     public void increaseCapacity(int n) {
         // TODO: Implement this method.
+        this.capacity += n;
 
     }
 
