@@ -59,7 +59,7 @@ public class CrossbodyBag extends Bag{
                 this.getCapacity() + ")";
     }
     public void enhance(){
-        this.enhance();
-        this.enhance();
+        this.increaseCapacity(2);
+
     };
 }
