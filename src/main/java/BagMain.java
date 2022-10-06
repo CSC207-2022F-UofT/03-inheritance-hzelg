@@ -17,10 +17,9 @@ class BagMain {
     public static void enhanceBags(Bag[] bags, boolean double_enhance_handbags) {
         // TODO: Implement this.
         for(var bag: bags){
-            if(double_enhance_handbags){
-                ((Bag)bag).increaseCapacity(2);
-            }else{
-                ((Bag)bag).increaseCapacity(1);
+            bag.enhance();
+            if(double_enhance_handbags && bag instanceof HandBag){
+                bag.enhance();
             }
         }
     }
