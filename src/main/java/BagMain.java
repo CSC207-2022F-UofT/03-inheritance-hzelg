@@ -38,7 +38,7 @@ class BagMain {
         int count = 0;
         for(var bag: bags){
             if(bag instanceof CrossbodyBag){
-                count += 2;
+                count += ((CrossbodyBag) bag).getNumberOfStraps();
             }
         }
         return count;
